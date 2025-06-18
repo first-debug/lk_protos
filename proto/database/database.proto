@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package database;
+
+option go_package = "first-debug.database.v1;databasev1";
+
+service Database { 
+    rpc GetPasswordHash(LoginRequest) returns (LoginResponse); 
+}
+
+message LoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message LoginResponse {
+    string passwordHash = 1;
+}
